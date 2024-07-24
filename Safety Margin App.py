@@ -85,19 +85,19 @@ class Safety :
 
 while True:
     try:
-        type1 = input('줄걸이 종류를 입력 하세요:[chain,wire_rope,nylon_sling]:')
+        type1 = input('줄걸이 종류를 입력 하세요:[1.chain,2.wire_rope,3.nylon_sling]:')
         weight1 = float(input('중량물 무게를 입력 하세요(단위:톤):'))
         weight2 = float(input('양중함 무게를 입력 하세요(단위:톤).[0.1~1(단위:0.1)]:'))
         weight3 = float(input('줄걸이 용구 무게를 입력 하세요(단위:톤).:'))
         num = int(input('줄걸이 수를 입력 하세요.[1,2,3,4]:'))
-        method = input('줄걸이 방법을 입력 하세요[1자 걸이, 초크 걸이, U자형 걸이]:')
-        if type1 not in['chain','wire_rope','nylon_sling']:
+        method = input('줄걸이 방법을 입력 하세요[1.1자 걸이, 2.초크 걸이, 3.U자형 걸이]:')
+        if type1 not in['1','2','3']:
             raise ValueError('다시 입력해주세요.')
         if weight2 not in[0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]:
             raise ValueError('다시 입력해 주세요.')
         if num not in[1,2,3,4]:
             raise ValueError('다시 입력해주세요.')
-        if method not in['1자 걸이','초크 걸이','U자형 걸이']:
+        if method not in['1','2','3']:
             raise ValueError('다시 입력해주세요.')
     except ValueError as ve:
         print(f'입력 오류')
@@ -107,24 +107,24 @@ while True:
         number = 1  # 하중 계수
     else:
         number = 1.155
-    if method == '1자 걸이':
+    if method == '1':
         mode = 1  # 모드 계수
-    elif method == '초크 걸이':
+    elif method == '2':
         mode = 0.8
-    elif method == 'U자형 걸이':
+    elif method == '3':
         mode = 2
     my_info=Safety(weight1,weight2,weight3,num,method,)
 
-    if type1 == 'chain':
+    if type1 == '1':
         my_info.chain()
-    elif type1 == 'nylon_sling':
+    elif type1 == '2':
         my_info.nylon_sling()
-    elif type1 == 'wire_rope':
+    elif type1 == '3':
         my_info.wire_rope()
     else:
         print('잘못된 값을 입력 하셨습니다.')
 
-    answer = input("계속 해서 다른 값으로 계산 하시겠습니까? (y/n): ")
+    answer = input("계속 해서 다른 값으로 계산 하시겠습니까? (yes/no): ")
     if answer.lower() != 'y':
         print("프로그램을 종료합니다.")
         break
