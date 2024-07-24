@@ -29,12 +29,14 @@ class Safety :
         result1 = result1+weight
         result2 = result2 + sling_capacity
         result3 = result3 + shackle_capacity
-        if weight<5000:
+        if weight<500:
             result4='작업 가능'
-            print('총 양중 무게:', weight,'톤','작업 가능','필요 줄걸이 용량(1줄당):',sling_capacity,'톤','필요 샤클 용량(1개당):',shackle_capacity,'톤')
+            print('총 양중 무게:', weight,'톤','필요 줄걸이 용량(1줄당):',round(sling_capacity,2),'톤','필요 샤클 용량(1개당):',round(shackle_capacity,2),'톤')
+            print(result4)
         else:
             result4='작업 불가능'
-            print('총 양중 무게:',weight,'톤','작업 불가능',weight-500,'톤','초과')
+            print('총 양중 무게:',weight,'톤',weight-500,'톤 초과')
+            print(result4)
         return result1,result2,result3,result4
     def nylon_sling(self):
         weight = self.weight1 + self.weight2 + self.weight3
@@ -49,12 +51,14 @@ class Safety :
         result1 = result1 + weight
         result2 = result2 + sling_capacity
         result3 = result3 + shackle_capacity
-        if weight < 2000:
+        if weight < 200:
             result4='작업 가능'
-            print('총 양중 무게:',weight,'톤','작업 가능','필요 줄걸이 용량(1줄당):','톤',sling_capacity,'필요 샤클 용량(1개당):',shackle_capacity,'톤')
+            print('총 양중 무게:',weight,'톤','필요 줄걸이 용량(1줄당):','톤',round(sling_capacity,2),'필요 샤클 용량(1개당):',round(shackle_capacity,2),'톤')
+            print(result4)
         else:
             result4='작업 불가능'
-            print('총 양중 무게:',weight,'톤', '작업 불가능', weight-200,'톤', '초과')
+            print('총 양중 무게:',weight,'톤', weight-200,'톤', '초과')
+            print(result4)
         return result1, result2, result3,result4
     def wire_rope(self):
         weight = self.weight1 + self.weight2 + self.weight3
@@ -69,19 +73,21 @@ class Safety :
         result1 = result1 + weight
         result2 = result2 + sling_capacity
         result3 = result3 + shackle_capacity
-        if weight < 3000:
+        if weight < 300:
             result4='작업 가능'
-            print('총 양중 무게:',weight,'톤','작업 가능','필요 줄걸이 용량(1줄당):','톤',sling_capacity,'필요 샤클 용량(1개당):',shackle_capacity,'톤')
+            print('총 양중 무게:',weight,'톤','필요 줄걸이 용량(1줄당):','톤',round(sling_capacity,2),'필요 샤클 용량(1개당):',round(shackle_capacity,2),'톤')
+            print(result4)
         else:
             result4='작업 불가능'
-            print('총 양중 무게:',weight,'톤', '작업 불가능', weight-300,'톤','초과')
+            print('총 양중 무게:',weight,'톤', weight-300,'톤','초과')
+            print(result4)
         return result1, result2, result3,result4
 
 while True:
     try:
         type1 = input('줄걸이 종류를 입력 하세요:[chain,wire_rope,nylon_sling]:')
         weight1 = float(input('중량물 무게를 입력 하세요(단위:톤):'))
-        weight2 = float(input('양중함 무게를 입력 하세요(단위:톤).[[0.1,0.2,~1]:'))
+        weight2 = float(input('양중함 무게를 입력 하세요(단위:톤).[0.1~1(단위:0.1)]:'))
         weight3 = float(input('줄걸이 용구 무게를 입력 하세요(단위:톤).:'))
         num = int(input('줄걸이 수를 입력 하세요.[1,2,3,4]:'))
         method = input('줄걸이 방법을 입력 하세요[1자 걸이, 초크 걸이, U자형 걸이]:')
