@@ -29,6 +29,7 @@ class Safety :
         result1 = result1+weight
         result2 = result2 + sling_capacity
         result3 = result3 + shackle_capacity
+        print("-"*50, "연산결과", "-"*50)
         if weight<500:
             result4='작업 가능'
             print('총 양중 무게:', weight,'톤')
@@ -38,6 +39,7 @@ class Safety :
             result4='작업 불가능'
             print('총 양중 무게:',weight,'톤',weight-500,'톤 초과')
             print(result4)
+        print("-"*105)
         return result1,result2,result3,result4
     def nylon_sling(self):
         weight = self.weight1 + self.weight2 + self.weight3
@@ -52,6 +54,7 @@ class Safety :
         result1 = result1 + weight
         result2 = result2 + sling_capacity
         result3 = result3 + shackle_capacity
+        print("-" * 50, "연산결과", "-" * 50)
         if weight < 200:
             result4='작업 가능'
             print('총 양중 무게:',weight,'톤')
@@ -61,6 +64,7 @@ class Safety :
             result4='작업 불가능'
             print('총 양중 무게:',weight,'톤', weight-200,'톤', '초과')
             print(result4)
+        print("-" * 105)
         return result1, result2, result3,result4
     def wire_rope(self):
         weight = self.weight1 + self.weight2 + self.weight3
@@ -75,6 +79,7 @@ class Safety :
         result1 = result1 + weight
         result2 = result2 + sling_capacity
         result3 = result3 + shackle_capacity
+        print("-" * 50, "연산결과", "-" * 50)
         if weight < 300:
             result4='작업 가능'
             print('총 양중 무게:',weight,'톤')
@@ -84,6 +89,7 @@ class Safety :
             result4='작업 불가능'
             print('총 양중 무게:',weight,'톤', weight-300,'톤','초과')
             print(result4)
+        print("-" * 105)
         return result1, result2, result3,result4
 
 while True:
@@ -114,7 +120,7 @@ while True:
         mode = 0.8
     elif method == '3':
         mode = 2
-    my_info=Safety(weight1,weight2,weight3,num,method,)
+    my_info=Safety(weight1,weight2,weight3,num,method)
 
     if type1 == '1':
         my_info.chain()
@@ -125,7 +131,9 @@ while True:
     else:
         print('잘못된 값을 입력 하셨습니다.')
 
+
     answer = input("계속 해서 다른 값으로 계산 하시겠습니까? (yes/no): ")
     if answer.lower() != 'yes':
         print("프로그램을 종료합니다.")
         break
+
